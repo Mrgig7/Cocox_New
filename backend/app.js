@@ -9,7 +9,11 @@ app.use(express.json());
 
 // CORS configuration
 const corsOptions = {
-    origin: ['http://localhost:5173', 'https://cocox-frontend.vercel.app'],
+    origin: [
+        'http://localhost:5173',
+        'https://cocox-frontend.vercel.app',
+        'https://cocox-new.vercel.app'
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
