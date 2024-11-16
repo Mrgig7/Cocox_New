@@ -70,17 +70,17 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://cocox-new.vercel.app/api/contact', {
+      const response = await fetch(['http://localhost:5000/api/contact', 'https://cocox-new.vercel.app/api/contact'][0], {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
+        credentials: 'include',
       });
 
       if (response.ok) {
         console.log('Form submitted successfully');
-        // Optionally, reset the form or show a success message
         setFormData({
           name: '',
           email: '',
@@ -88,7 +88,8 @@ const Home = () => {
           message: ''
         });
       } else {
-        console.error('Failed to submit form');
+        const errorData = await response.json();
+        console.error('Failed to submit form:', errorData);
       }
     } catch (error) {
       console.error('Error:', error);
