@@ -22,32 +22,39 @@ const cardVariants = {
 
 const Products = () => {
     return (
-        <div className="flex flex-col items-center py-10 min-h-screen" style={{ background: "linear-gradient(135deg, #d3f3d3, #f2f2f2)" }}>
-            <h1 className="text-4xl font-semibold text-green-600 mb-6">Our Product Range</h1>
-            <p className="text-lg text-gray-700 max-w-2xl text-center mb-10">
-                Discover our innovative, eco-friendly coir products designed for sustainable growth and optimized agriculture.
-            </p>
-            {/* Innovative Grid Layout */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-6xl px-4">
-                {products.map((product, index) => (
-                    <motion.div
-                        key={index}
-                        className="p-4 shadow-lg rounded-lg transform transition-all duration-500 hover:scale-105"
-                        style={{
-                            backgroundColor: "#f0f8f5", // A light mint-green color matching the theme
-                        }}
-                        variants={cardVariants}
-                        initial="hidden"
-                        animate="visible"
-                        transition={{ delay: index * 0.1 }}
-                    >
-                        <ProductCard 
-                            title={product.title} 
-                            description={product.description} 
-                            imageUrl="https://via.placeholder.com/150" // Placeholder image
-                        />
-                    </motion.div>
-                ))}
+        <div className="min-h-screen" 
+             style={{ background: "linear-gradient(135deg, #d3f3d3, #f2f2f2)" }}>
+            <div className="flex flex-col items-center pt-24 md:pt-28 px-4">
+                {/* Header Section - Responsive text sizes */}
+                <h1 className="text-3xl md:text-4xl font-semibold text-green-600 mb-4 md:mb-6 text-center">
+                    Our Product Range
+                </h1>
+                <p className="text-base md:text-lg text-gray-700 max-w-2xl text-center mb-8 md:mb-10 px-4">
+                    Discover our innovative, eco-friendly coir products designed for sustainable growth and optimized agriculture.
+                </p>
+
+                {/* Responsive Grid Layout */}
+                <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 w-full max-w-6xl px-2 md:px-4 pb-20">
+                    {products.map((product, index) => (
+                        <motion.div
+                            key={index}
+                            className="p-2 md:p-4 shadow-lg rounded-lg transform transition-all duration-500 hover:scale-105"
+                            style={{
+                                backgroundColor: "#f0f8f5",
+                            }}
+                            variants={cardVariants}
+                            initial="hidden"
+                            animate="visible"
+                            transition={{ delay: index * 0.1 }}
+                        >
+                            <ProductCard 
+                                title={product.title} 
+                                description={product.description} 
+                                imageUrl="https://via.placeholder.com/150"
+                            />
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </div>
     );
