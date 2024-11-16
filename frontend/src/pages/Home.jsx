@@ -139,19 +139,18 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center">
       {/* Hero Section */}
-      <section className="w-full h-screen bg-cover bg-center bg-hero-pattern flex items-center justify-center text-white text-center relative">
+      <section className="w-full h-screen bg-cover bg-center bg-hero-pattern flex items-center justify-center text-white text-center relative px-4 sm:px-6">
         <div className="absolute inset-0 bg-black opacity-30"></div>
         <div className="relative max-w-lg animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-wider animate-slide-down">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 tracking-wider animate-slide-down">
             Eco-Friendly Coir Solutions
           </h1>
-          <p className="text-lg md:text-xl mb-6 animate-fade-in-delay">
-            Enhancing sustainable agriculture with high-quality coco coir
-            products.
+          <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 animate-fade-in-delay px-2">
+            Enhancing sustainable agriculture with high-quality coco coir products.
           </p>
           <button
             onClick={() => navigate("/products")}
-            className="bg-green-500 text-white py-2 px-6 rounded hover:bg-green-600 transition transform hover:scale-105 animate-bounce"
+            className="bg-green-500 text-white py-2 px-4 sm:px-6 rounded hover:bg-green-600 transition transform hover:scale-105 animate-bounce text-sm sm:text-base"
           >
             Explore Products
           </button>
@@ -164,34 +163,34 @@ const Home = () => {
       {/* Stats Section */}
       <section
         ref={statsRef}
-        className="py-10 w-full bg-gray-100 flex justify-around items-center text-center"
+        className="py-8 sm:py-10 w-full bg-gray-100 flex flex-col sm:flex-row justify-around items-center text-center space-y-6 sm:space-y-0 px-4"
       >
         <div className="flex flex-col items-center">
-          <h3 className="text-4xl font-bold text-green-500">
+          <h3 className="text-3xl sm:text-4xl font-bold text-green-500">
             {isInView && <CountUp start={0} end={50} duration={2.5} />}+
           </h3>
-          <p className="text-lg text-gray-700 mt-2">Customers</p>
+          <p className="text-base sm:text-lg text-gray-700 mt-2">Customers</p>
         </div>
         <div className="flex flex-col items-center">
-          <h3 className="text-4xl font-bold text-green-500">
+          <h3 className="text-3xl sm:text-4xl font-bold text-green-500">
             {isInView && <CountUp start={0} end={100} duration={2.5} />}+
           </h3>
-          <p className="text-lg text-gray-700 mt-2">Tons of Products</p>
+          <p className="text-base sm:text-lg text-gray-700 mt-2">Tons of Products</p>
         </div>
         <div className="flex flex-col items-center">
-          <h3 className="text-4xl font-bold text-green-500">
+          <h3 className="text-3xl sm:text-4xl font-bold text-green-500">
             {isInView && <CountUp start={0} end={5} duration={2.5} />}+
           </h3>
-          <p className="text-lg text-gray-700 mt-2">Countries Served</p>
+          <p className="text-base sm:text-lg text-gray-700 mt-2">Countries Served</p>
         </div>
       </section>
 
       {/* Product Showcase */}
-      <section className="py-10 w-full flex flex-col items-center">
-        <h2 className="text-3xl font-semibold mb-8 text-green-500">
+      <section className="py-8 sm:py-10 w-full flex flex-col items-center px-4">
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-green-500">
           Our Products
         </h2>
-        <div className="flex flex-wrap justify-center gap-6 animate-slide-up">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl animate-slide-up">
           {visibleProducts.map((product, index) => (
             <ProductCard
               key={index}
@@ -202,19 +201,19 @@ const Home = () => {
         </div>
         <button
           onClick={() => navigate("/products")}
-          className="bg-green-500 text-white py-2 px-6 mt-4 rounded hover:bg-green-600 transition"
+          className="bg-green-500 text-white py-2 px-4 sm:px-6 mt-4 rounded hover:bg-green-600 transition text-sm sm:text-base"
         >
           See All Products
         </button>
       </section>
 
       {/* Contact Form Section */}
-      <div className="w-full max-w-4xl mx-auto px-4 py-10">
-        <div className="bg-white rounded-lg shadow-xl p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="w-full max-w-4xl mx-auto px-4 py-8 sm:py-10">
+        <div className="bg-white rounded-lg shadow-xl p-4 sm:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* Contact Info */}
-            <div className="bg-green-50 p-6 rounded-lg">
-              <h3 className="text-2xl font-bold text-green-800 mb-4">Contact Information</h3>
+            <div className="bg-green-50 p-4 sm:p-6 rounded-lg">
+              <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-4">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,57 +239,59 @@ const Home = () => {
 
             {/* Contact Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="Email Address"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows="4"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                />
+              <div className="space-y-4">
+                <div>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
+                    placeholder="Email Address"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <input
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    required
+                    className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
+                    placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows="4"
+                    className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
+                    placeholder="Your Message"
+                    value={formData.message}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
               <button
                 type="submit"
-                className="w-full py-3 px-6 text-white bg-green-600 hover:bg-green-700 rounded-md transition duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                className="w-full py-2 sm:py-3 px-4 sm:px-6 text-white bg-green-600 hover:bg-green-700 rounded-md transition duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-sm sm:text-base"
               >
                 Send Message
               </button>
