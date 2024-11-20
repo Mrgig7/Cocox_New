@@ -4,7 +4,7 @@
 
 /* Custom Background Image */
 .bg-hero-pattern {
-  background-image: url('./assets/bghero.jpeg');
+  background-image: url('./assets/trial.jpeg');
   background-size: cover;
   background-position: center;
   animation: backgroundPan 15s linear infinite;
@@ -12,7 +12,7 @@
 
 /* Custom Background for About Us Page */
 .bg-about-pattern {
-  background-image: url('./assets/bgabout.jpeg'); /* Placeholder image */
+  background-image: url('./assets/trial_2.jpeg'); /* Placeholder image */
   background-size: cover;
   background-position: center;
 }
@@ -85,4 +85,10 @@
         from { transform: translateY(50px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
     }
+}
+
+.bg-hero {
+  background-image: url('./assets/hero_1.jpeg'); /* Update the path as necessary */
+  background-size: cover;
+  background-position: center;
 }

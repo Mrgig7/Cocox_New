@@ -1,8 +1,9 @@
 // import React from 'react';
 import { motion } from 'framer-motion'; 
-import { FaSeedling, FaShippingFast, FaRegBuilding, FaUsers } from 'react-icons/fa'; 
+import { FaSeedling, FaShippingFast, FaRegBuilding } from 'react-icons/fa'; 
 import mdPhoto from '../assets/placeholder.jpeg'; 
 import managerPhoto from '../assets/placeholder.jpeg';
+import factoryImage from '../assets/factory.jpeg'; // Import the factory image
 
 const AboutUs = () => {
     return (
@@ -33,7 +34,7 @@ const AboutUs = () => {
                     excellent customer service worldwide.
                 </motion.p>
                 <motion.img 
-                    src="https://via.placeholder.com/800x400" 
+                    src={factoryImage} // Use the imported image
                     alt="Company building" 
                     className="w-full rounded-lg shadow-lg"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -97,7 +98,7 @@ const AboutUs = () => {
                     >
                         <img src={mdPhoto} alt="Managing Director" className="w-32 h-32 rounded-full mx-auto mb-4" />
                         <h3 className="text-xl font-semibold">Managing Director</h3>
-                        <p className="text-gray-600">Sundaraja leads the team with a vision for sustainable growth and eco-friendly practices.</p>
+                        <p className="text-gray-600">Chandra Sekar leads the team with a vision for sustainable growth and eco-friendly practices.</p>
                     </motion.div>
 
                     {/* Manager Card */}
@@ -108,8 +109,8 @@ const AboutUs = () => {
                         transition={{ duration: 0.7, delay: 0.4 }}
                     >
                         <img src={managerPhoto} alt="Marketing Manager" className="w-32 h-32 rounded-full mx-auto mb-4" />
-                        <h3 className="text-xl font-semibold">Marketing Manager</h3>
-                        <p className="text-gray-600">Our Marketing Manager ensures that Cocox reaches its customers with the right message and approach.</p>
+                        <h3 className="text-xl font-semibold">Marketing Head</h3>
+                        <p className="text-gray-600">Our Marketing Head Mr.Rohinth Sundar ensures that Cocox reaches its customers with the right message and approach.</p>
                     </motion.div>
                 </div>
             </section>

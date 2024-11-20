@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faArrowUp, faHome, faBoxOpen, faInfoCircle, faPhone } from '@fortawesome/free-solid-svg-icons';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
     const [showScrollTop, setShowScrollTop] = useState(false);
@@ -24,7 +25,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {/* Company Info */}
                     <div className="flex flex-col items-center sm:items-start space-y-3">
-                        <img src="/path/to/logo.png" alt="Company Logo" className="w-20" />
+                        <img src={logo} alt="Company Logo" className="w-32" />
                         <p className="text-gray-400 text-sm text-center sm:text-left">
                             We manufacture 100% natural, superior Coco Coir products, delivering premium value to our customers.
                         </p>
@@ -53,10 +54,13 @@ const Footer = () => {
                     <div className="flex flex-col items-center sm:items-start space-y-3">
                         <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
                         <div className="space-y-2 text-gray-400 text-sm text-center sm:text-left">
-                            <p>No.14/2, Nehru Nagar East, Coimbatore, Tamil Nadu, India – 641014</p>
+                            <p>5-1-12, Madurai Main Rd, Raj Nagar, Shanthi Nagar, Koodal Nagar, Vadipatti, Madurai, Tamil Nadu 625218</p>
                             <p className="flex items-center justify-center sm:justify-start">
                                 <FontAwesomeIcon icon={faEnvelope} className="text-green-500 mr-2" /> 
-                                contact@cococoir.com
+                                <a href="mailto:help@abiexports.com" className="text-gray-400 hover:text-white">help@abiexports.com</a>
+                            </p>
+                            <p className="text-gray-400 text-sm">
+                                GSTIN: 33ASFPS1411G1Z5
                             </p>
                             <div className="flex justify-center sm:justify-start space-x-4 mt-3">
                                 <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-500">

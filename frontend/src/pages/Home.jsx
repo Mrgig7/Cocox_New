@@ -5,6 +5,35 @@ import { useNavigate } from "react-router-dom";
 import CountUp from "react-countup";
 import ProductCard from "../components/ProductCard";
 import CardSection from "../components/CardSection";
+import seedStarterImage from '../assets/cocodisk.jpg';
+import cocoCubeImage from '../assets/cococube.jpg';
+import openTopImage from '../assets/cocopot.jpg';
+import growBagsImage from '../assets/growbag.png';
+import cocoBrickImage from '../assets/cocobrick.jpg';
+import cocoHeartImage from '../assets/cocoheart.jpg';
+import cocoMixImage from '../assets/cocomix.jpg';
+import cocoSupremeImage from '../assets/cocosupreme.jpg';
+
+// Function to generate random tags
+const getRandomTags = (numTags) => {
+    const possibleTags = [
+        '#EcoFriendly', 
+        '#Sustainable', 
+        '#Organic', 
+        '#Gardening', 
+        '#Hydroponics', 
+        '#IndoorGardening', 
+        '#PlantCare', 
+        '#CocoCoir', 
+        '#SoilHealth', 
+        '#GrowYourOwn', 
+        '#HomeGarden', 
+        '#PlantLovers', 
+        '#GreenThumb'
+    ];
+    const shuffled = possibleTags.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, numTags);
+};
 
 // Define product information based on catalog details
 const products = [
@@ -12,38 +41,54 @@ const products = [
     title: "Seed Starter / Coco Disc",
     description:
       "Specially formulated and pH-balanced for germination with options for buffered or triple-washed material.",
+    imageUrl: seedStarterImage,
+    tags: getRandomTags(3)
   },
   {
     title: "Coco Cube / Grow Cube",
     description:
       "100% coco coir cubes with various sizes, ideal for multiple grow systems with no switching costs.",
+    imageUrl: cocoCubeImage,
+    tags: getRandomTags(3)
   },
   {
     title: "Open Top / Grow Pot",
     description:
       "Pre-mixed coco blend for indoor, greenhouse, and outdoor growth with options for plastic or non-woven containers.",
+    imageUrl: openTopImage,
+    tags: getRandomTags(3)
   },
   {
     title: "Grow Bags",
     description:
       "Moisture-manage technology ensuring uniform moisture content, minimizing run-off and enhancing crop quality.",
+    imageUrl: growBagsImage,
+    tags: getRandomTags(3)
   },
   {
     title: "Coco Brick",
     description: "5 kg compressed coco blocks for versatile use.",
+    imageUrl: cocoBrickImage,
+    tags: getRandomTags(3)
   },
   {
     title: "Coco Heart",
     description:
       "Blocks with embedded names and logos, customized as per requirements.",
+    imageUrl: cocoHeartImage,
+    tags: getRandomTags(3)
   },
   {
     title: "Coco Mix",
     description: "Custom coco mix options for specific grow requirements.",
+    imageUrl: cocoMixImage,
+    tags: getRandomTags(3)
   },
   {
     title: "Coco Supreme",
     description: "Premium coco coir with customized material options.",
+    imageUrl: cocoSupremeImage,
+    tags: getRandomTags(3)
   },
 ];
 
@@ -58,6 +103,7 @@ const Home = () => {
   });
   const navigate = useNavigate();
   const statsRef = useRef(null);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -196,6 +242,8 @@ const Home = () => {
               key={index}
               title={product.title}
               description={product.description}
+              imageUrl={product.imageUrl}
+              tags={product.tags}
             />
           ))}
         </div>
@@ -216,23 +264,25 @@ const Home = () => {
               <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-4">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                   </svg>
-                  <p className="text-gray-600">123 Business Street, City, Country</p>
+                  <p className="text-gray-600">5-1-12, Madurai Main Rd, Raj Nagar, Shanthi Nagar, Koodal Nagar, Vadipatti, Madurai, Tamil Nadu 625218</p>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                   </svg>
-                  <p className="text-gray-600">contact@example.com</p>
+                  <p className="text-gray-600">
+                    <a href="mailto:help@abiexports.com" className="text-gray-600 hover:text-green-500">help@abiexports.com</a>
+                  </p>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                   </svg>
-                  <p className="text-gray-600">+1 234 567 890</p>
+                  <p className="text-gray-600">+91 9042552550</p>
                 </div>
               </div>
             </div>
