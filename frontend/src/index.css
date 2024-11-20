@@ -85,6 +85,13 @@
         from { transform: translateY(50px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
     }
+
+    @keyframes backgroundAnimation {
+        0% { background-color: #e0f7e0; }
+        50% { background-color: #b2ebf2; }
+        100% { background-color: #e0f7e0; }
+    }
+    
 }
 
 .bg-hero {

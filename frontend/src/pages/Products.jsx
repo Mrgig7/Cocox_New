@@ -45,20 +45,68 @@ const products = [
     { title: "Coco Supreme", description: "Premium coco coir with customized material options.", imageUrl: cocoSupremeImage, tags: getRandomTags(3) }
 ];
 
+// Animation variants
+const containerVariants = {
+    hidden: { opacity: 0, transition: { duration: 0.5 } },
+    visible: { opacity: 1, transition: { duration: 0.5 } }
+};
+
+const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+};
+
 const Products = () => {
     return (
-        <div className="flex flex-wrap justify-center">
-            {products.map((product, index) => (
-                <motion.div key={index} className="m-4">
-                    <ProductCard 
-                        title={product.title} 
-                        description={product.description} 
-                        imageUrl={product.imageUrl} 
-                        tags={product.tags} // Pass the randomly generated tags here
-                    />
-                </motion.div>
-            ))}
-        </div>
+        <>
+            <motion.div 
+                className="flex flex-col items-center justify-center py-20"
+                style={{ backgroundColor: '#e0f7e0' }}
+                initial="hidden"
+                animate="visible"
+                variants={containerVariants}
+            >
+                {/* Page Header */}
+                <div className="text-center mb-12">
+                    <motion.h1
+                        className="text-4xl font-bold text-green-700 mb-4"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        Our Product Range
+                    </motion.h1>
+                    <motion.p
+                        className="text-lg text-gray-700 max-w-2xl mx-auto"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        Explore our eco-friendly products designed to promote sustainable gardening and agriculture.
+                    </motion.p>
+                </div>
+                {/* Products Section */}
+                <div className="flex flex-wrap justify-center">
+                    {products.map((product, index) => (
+                        <motion.div 
+                            key={index} 
+                            className="m-4"
+                            variants={cardVariants}
+                            initial="hidden"
+                            animate="visible"
+                            transition={{ delay: index * 0.1 }}
+                        >
+                            <ProductCard 
+                                title={product.title} 
+                                description={product.description} 
+                                imageUrl={product.imageUrl} 
+                                tags={product.tags} // Pass the randomly generated tags here
+                            />
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.div>
+        </>
     );
 };
 
