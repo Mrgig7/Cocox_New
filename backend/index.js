@@ -16,6 +16,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
+app.options('/api/contact', cors(corsOptions));
 
 // Connect to MongoDB
 mongoose
