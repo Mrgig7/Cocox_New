@@ -37,11 +37,13 @@ const Contact = mongoose.model('Contact', contactSchema);
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: parseInt(process.env.SMTP_PORT),
-  secure: false, // Use false for 587
+  secure: false, // Use true for 465, false for other ports
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
+  logger: true, // Enable logging
+  debug: true,  // Enable debug output
 });
 
 // Test SMTP connection
@@ -62,15 +64,26 @@ app.post('/api/contact', async (req, res) => {
     const contact = new Contact({ name, email, subject, message });
     await contact.save();
 
-    // Send acknowledgment email
-    const mailOptions = {
+    // Send acknowledgment email to the user
+    const mailOptionsToUser = {
       from: process.env.FROM_EMAIL,
       to: email,
       subject: 'Thank you for contacting Cocox',
       text: `Hi ${name},\n\nThank you for your message: "${message}". We will get back to you soon.\n\nBest regards,\nCocox`,
     };
 
-    await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptionsToUser);
+
+    // Send email to the marketing team
+    const mailOptionsToMarketing = {
+      from: process.env.FROM_EMAIL,
+      to: process.env.MARKETING_EMAIL,
+      subject: 'New Contact Form Submission',
+      text: `New contact form submission:\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
+    };
+
+    await transporter.sendMail(mailOptionsToMarketing);
+
     res.status(200).json({ success: true, message: 'Message sent successfully!' });
   } catch (error) {
     console.error('Error in /api/contact:', error);
@@ -87,6 +100,7 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === 'development' ? err.message : undefined,
   });
 });
+// console.log(process.env.FROM_EMAIL, process.env.MARKETING_EMAIL);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
