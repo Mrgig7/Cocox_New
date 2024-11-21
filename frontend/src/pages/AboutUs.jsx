@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaSeedling, FaShippingFast, FaRegBuilding } from 'react-icons/fa'; 
 import mdPhoto from '../assets/sekar.png'; 
 import managerPhoto from '../assets/Rohinth.jpg';
-import factoryImage from '../assets/factory.webp'; // Import the factory image
+import factoryImage from '../assets/factory.webp';
 
 const AboutUs = () => {
     return (
