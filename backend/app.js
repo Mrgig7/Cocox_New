@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Updated CORS configuration
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://cocox.vercel.app'], 
+  origin: ['http://localhost:5173', 'https://cocox-frontend.vercel.app'], 
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'], 
     credentials: true,
@@ -62,26 +62,15 @@ app.post('/api/contact', async (req, res) => {
     const contact = new Contact({ name, email, subject, message });
     await contact.save();
 
-    // Send acknowledgment email to the user
-    const mailOptionsToUser = {
+    // Send acknowledgment email
+    const mailOptions = {
       from: process.env.FROM_EMAIL,
       to: email,
       subject: 'Thank you for contacting Cocox',
       text: `Hi ${name},\n\nThank you for your message: "${message}". We will get back to you soon.\n\nBest regards,\nCocox`,
     };
 
-    await transporter.sendMail(mailOptionsToUser);
-
-    // Send email to the marketing team
-    const mailOptionsToMarketing = {
-      from: process.env.FROM_EMAIL,
-      to: process.env.MARKETING_EMAIL,
-      subject: 'New Contact Form Submission',
-      text: `New contact form submission:\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
-    };
-
-    await transporter.sendMail(mailOptionsToMarketing);
-
+    await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true, message: 'Message sent successfully!' });
   } catch (error) {
     console.error('Error in /api/contact:', error);
