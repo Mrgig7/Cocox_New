@@ -1,9 +1,9 @@
 // import React from 'react';
 import { motion } from 'framer-motion'; 
 import { FaSeedling, FaShippingFast, FaRegBuilding } from 'react-icons/fa'; 
-import mdPhoto from '../assets/placeholder.jpeg'; 
-import managerPhoto from '../assets/placeholder.jpeg';
-import factoryImage from '../assets/factory.jpeg'; // Import the factory image
+import mdPhoto from '../assets/sekar.png'; 
+import managerPhoto from '../assets/Rohinth.jpg';
+import factoryImage from '../assets/factory.webp'; // Import the factory image
 
 const AboutUs = () => {
     return (
@@ -108,9 +108,9 @@ const AboutUs = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.4 }}
                     >
-                        <img src={managerPhoto} alt="Marketing Manager" className="w-32 h-32 rounded-full mx-auto mb-4" />
-                        <h3 className="text-xl font-semibold">Marketing Head</h3>
-                        <p className="text-gray-600">Our Marketing Head Mr.Rohinth Sundar ensures that Cocox reaches its customers with the right message and approach.</p>
+                        <img src={managerPhoto} alt="Product Manager" className="w-32 h-32 rounded-full mx-auto mb-4" />
+                        <h3 className="text-xl font-semibold">Product Manager</h3>
+                        <p className="text-gray-600">Our Product Manager Mr.Rohinth Sundar ensures that Cocox reaches its customers with the right message and approach.</p>
                     </motion.div>
                 </div>
             </section>
