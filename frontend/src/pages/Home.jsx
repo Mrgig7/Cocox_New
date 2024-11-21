@@ -116,7 +116,7 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(['http://localhost:5000/api/contact', 'https://cocox-new.vercel.app/api/contact'][0], {
+      const response = await fetch(['http://localhost:5000/api/contact', 'https://cocox-backend.vercel.app/api/contact'][0], {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
