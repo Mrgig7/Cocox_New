@@ -101,6 +101,7 @@ const Home = () => {
     subject: '',
     message: ''
   });
+  const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
   const statsRef = useRef(null);
 
@@ -127,6 +128,7 @@ const Home = () => {
 
       if (response.ok) {
         console.log('Form submitted successfully');
+        setSuccessMessage('Thanks for showing interest, we will reach out soon');
         setFormData({
           name: '',
           email: '',
@@ -254,6 +256,13 @@ const Home = () => {
           See All Products
         </button>
       </section>
+
+      {/* Display success message */}
+      {successMessage && (
+        <div className="bg-green-100 text-green-700 p-4 rounded-md mb-4">
+          {successMessage}
+        </div>
+      )}
 
       {/* Contact Form Section */}
       <div className="w-full max-w-4xl mx-auto px-4 py-8 sm:py-10">
