@@ -7,16 +7,16 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 
-// Updated CORS configuration
+// CORS configuration
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://cocox.vercel.app'], 
+  origin: ['http://localhost:5173', 'https://cocox.vercel.app'], // Allow these origins
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'], 
-    credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 };
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
-app.options('/api/contact', cors(corsOptions));
+
+app.use(cors(corsOptions)); // Use CORS middleware
+app.options('*', cors(corsOptions)); // Handle preflight requests for all routes
 
 // Connect to MongoDB
 mongoose
@@ -101,7 +101,6 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === 'development' ? err.message : undefined,
   });
 });
-// console.log(process.env.FROM_EMAIL, process.env.MARKETING_EMAIL);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
