@@ -69,14 +69,9 @@ Contributions are welcome! Follow these steps:
 ## 📜 License
 This project is licensed under the **[MIT License](LICENSE)**.
 
-## 🙌 Acknowledgements
-Special thanks to:
-- [Contributor 1]
-- [Contributor 2]
-
 ## 📞 Contact
 For any inquiries, reach out to:
-📧 Email: jnitesh1463@gmail.com
-🐦 Twitter: [@NiteshJ83599181](https://x.com/NiteshJ83599181)  
-💼 LinkedIn: [Nitesh J](https://www.linkedin.com/in/niteshj14/))
+- 📧 Email: jnitesh1463@gmail.com
+- 🐦 Twitter: [@NiteshJ83599181](https://x.com/NiteshJ83599181)  
+- 💼 LinkedIn: [Nitesh J](https://www.linkedin.com/in/niteshj14/))
 
