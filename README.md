@@ -1,7 +1,5 @@
 # Cocox_New
 
-![Cocox_New](https://your-image-url.com/banner.png) <!-- Add a relevant banner image -->
-
 ## 🚀 Overview
 Cocox_New is a promotional website for the company. This repository contains the project, providing an efficient and scalable solution for the company's establishment.
 
